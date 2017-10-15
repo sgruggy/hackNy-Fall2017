@@ -1,4 +1,4 @@
-var app = new Clarifai.App({apiKey: 'a9fca31403a9421f9cf2dc02466fa095'});
+var app = new Clarifai.App({apiKey: 'bb38e194c7104836a8159309c7b25e3c'});
 
 app.models.predict(Clarifai.GENERAL_MODEL, "https://samples.clarifai.com/metro-north.jpg").then(
   function(response) {
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
     navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia);
-
 
     if(!navigator.getMedia){
         displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
@@ -94,12 +93,33 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById("test").innerHTML = response.outputs[0].data.concepts[0].name + ", " + 
           response.outputs[0].data.concepts[1].name + ", " + 
           response.outputs[0].data.concepts[2].name;
+		  
+	  	q = response.outputs[0].data.concepts[2]; // search query
+	
+	  	request = new XMLHttpRequest;
+	  	request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
+	
+	  	request.onload = function() {
+	  		if (request.status >= 200 && request.status < 400){
+	  			data = JSON.parse(request.responseText).data.image_url;
+	  			console.log(data);
+	  			document.getElementById("giphyme").innerHTML = '<center><img src = "'+data+'"  title="GIF via Giphy"></center>';
+	  		} else {
+	  			console.log('reached giphy, but API returned an error');
+	  		 }
+	  	};
+
+	  	request.onerror = function() {
+	  		console.log('connection error');
+	  	};
+
+	  	request.send();
   },
   function(err) {
     // there was an error
   }
 );
-    }, 1000));
+    }, 5000));
 
 
     delete_photo_btn.addEventListener("click", function(e){

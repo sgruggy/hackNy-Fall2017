@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
 
     <meta charset="utf-8">
@@ -14,14 +16,23 @@
     
     <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> 
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v1.17.0/dist/aframe-extras.min.js"></script>
     
 </head>
 <body>
 
 
 <h3>Demo: Take a Selfie With JavaScript</h3>
-
+<a-scene embedded arjs='trackingMethod: best;'>
+      <a-anchor hit-testing-enabled='true'>
+          <a-entity geometry="primitive:box;" material="shader:gif;src:url(test2.gif);">
+          <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear"></a-animation></a-entity>
+        </a-anchor>
+		<a-camera-static/>
+	</a-scene>
 <div class="container">
 
   <div class="app">
@@ -43,10 +54,13 @@
 
   </div>
     <h1 id = "test"></h1>
+	<span id = "giphyme"></span>
 </div>
 
 
 <script src="assets/js/script.js"></script>
+<script src="assets/js/giphy.js"></script>
+
 
 </body>
 
