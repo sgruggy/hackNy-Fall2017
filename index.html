@@ -1,67 +1,36 @@
-<!DOCTYPE html>
-<html>
-
-
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Demo: Take a Selfie With JavaScript</title>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    
-    <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
-     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+<div>
+    <form id="frm1">
+  Input: <input type="text" name="desc" value="Spaceship"><br>
+</form> 
+    <button onclick="test2()">Try it</button>
+    </div>
+<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+ <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
   <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> 
 <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v1.17.0/dist/aframe-extras.min.js"></script>
-    
-</head>
+<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+
 <body>
-
-
-<h3>Demo: Take a Selfie With JavaScript</h3>
-<a-scene embedded arjs='trackingMethod: best;'>
-      <a-anchor hit-testing-enabled='true'>
-          <a-entity geometry="primitive:box;" material="shader:gif;src:url(test2.gif);">
+	<a-scene embedded arjs='trackingMethod: best;'>
+      <a-anchor>
+          <a-entity id = "display" geometry="primitive: sphere; radius: 1.5; " material="shader:gif;src:url(test2.gif);">
           <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear"></a-animation></a-entity>
         </a-anchor>
 		<a-camera-static/>
 	</a-scene>
-<div class="container">
-
-  <div class="app">
-
-    <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
-    <video id="camera-stream"></video>
-    <img id="snap">
-
-    <p id="error-message"></p>
-
-    <div class="controls">
-      <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
-      <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
-      <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  
+<!--
+    <form id="frm1" action="/action_page.php">
+  First name: <input type="text" name="fname"><br><br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+-->
+<!--    <img id = "test2" src = ""/>-->
+    <div>
+    <form id="frm1">
+  Input: <input type="text" name="desc" value="Spaceship"><br>
+</form> 
+    <button onclick="test2()">Try it</button>
     </div>
-
-    <!-- Hidden canvas element. Used for taking snapshot of video. -->
-    <canvas></canvas>
-
-  </div>
-    <h1 id = "test"></h1>
-	<span id = "giphyme"></span>
-</div>
-
-
-<script src="assets/js/script.js"></script>
-<script src="assets/js/giphy.js"></script>
-
-
+    <script src="script.js"></script>
 </body>
-
-</html>
