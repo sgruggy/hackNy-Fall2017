@@ -1,0 +1,25 @@
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+ <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> 
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v1.17.0/dist/aframe-extras.min.js"></script>
+<style>
+    body{
+        height: 1000px;
+        width: 1000px;
+    }
+</style>
+
+<body>
+	<a-scene embedded arjs='trackingMethod: best;'>
+      <a-anchor hit-testing-enabled='true'>
+          <a-entity geometry="primitive:box;" material="shader:gif;src:url(test2.gif);">
+          <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear"></a-animation></a-entity>
+        </a-anchor>
+		<a-camera-static/>
+	</a-scene>
+    <h1>Test</h1>
+    <script>
+    
+    </script>
+</body>
