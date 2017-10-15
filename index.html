@@ -1,20 +1,28 @@
-<div>
-    <form id="frm1">
-  Input: <input type="text" name="desc" value="Spaceship"><br>
-</form> 
-    <button onclick="test2()">Try it</button>
-    </div>
 <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
   <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> 
 <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v1.17.0/dist/aframe-extras.min.js"></script>
 <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-
+<style>
+    body{
+        padding: 16px;
+    }
+</style>
 <body>
+    <div>
+    <form id="frm1">
+  Input: <input type="text" name="desc" value="Spaceship"><br>
+</form> 
+    <button onclick="test2()">Change</button>
+    <button onclick="toSphere()">To Sphere</button>
+    <button onclick="toBox()">To Box</button>
+        <br>
+    <button onclick="to2dBox()">2d Box</button>
+    </div>
 	<a-scene embedded arjs='trackingMethod: best;'>
       <a-anchor>
-          <a-entity id = "display" geometry="primitive: sphere; radius: 1.5; " material="shader:gif;src:url(test2.gif);">
+          <a-entity id = "display" geometry="primitive: sphere; radius: 1.5 " material="shader:gif;src:url(test2.gif);">
           <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear"></a-animation></a-entity>
         </a-anchor>
 		<a-camera-static/>
@@ -26,11 +34,5 @@
 </form>
 -->
 <!--    <img id = "test2" src = ""/>-->
-    <div>
-    <form id="frm1">
-  Input: <input type="text" name="desc" value="Spaceship"><br>
-</form> 
-    <button onclick="test2()">Try it</button>
-    </div>
     <script src="script.js"></script>
 </body>

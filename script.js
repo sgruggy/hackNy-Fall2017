@@ -32,3 +32,24 @@ function test2(){
 
 	  	request.send();
 }
+
+function toBox(){
+    var display = document.getElementById("display");
+    var geo = display.getAttribute("geometry");
+    geo = "primitive: box; buffer: false; skipCache: true; width: 1.5; height: 1.5; depth: 1.5";
+    display.setAttribute("geometry", geo);
+}
+
+function to2dBox(){
+    var display = document.getElementById("display");
+    var geo = display.getAttribute("geometry");
+    geo = "primitive: plane; height: 3; width: 3";
+    display.setAttribute("geometry", geo);
+}
+
+function toSphere(){
+    var display = document.getElementById("display");
+    var geo = display.getAttribute("geometry");
+    geo = "primitive: sphere; radius: 1.5";
+    display.setAttribute("geometry", geo);
+}
